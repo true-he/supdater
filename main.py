@@ -42,7 +42,7 @@ if __name__ == '__main__':
     info = SW.get_info(table=params.sqlTableName, columns=params.columns, where=params.where)
     # Преобразуем список множеств в список списков
     # Т.к. Spreadsheets API не работает с множествами
-    info = [[i[0], i[1], i[2], i[3]] for i in info]
+    info = [[s for s in sets] for sets in info]
 
     # Создаем объект обнавления таблицы
     su = SUpdater(file_id=params.fileId, sheet_id=params.spreadsheetId, sheet_name=params.sheetName)
